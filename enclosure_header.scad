@@ -19,8 +19,16 @@ topHatchSlantXOffset = 7 * 10; // cm
 dedCoolerLength = 30 * 10; // cm
 dedCoolerDepth = 8 * 10; // cm
 dedCoolerHeight = 10 * 10; // cm
-
 dedCoolerSlantXOffset = 8 * 10; // cm
+
+
+elecBayLength = 25 * 10; // cm
+elecBayDepth = 50 * 10; // cm
+elecBayHeight = incHeight; // cm
+
+elecBayBottomXOffset = 15 * 10; // cm
+
+elecBaySlantAngle = 50; // Angle
 
 wallThickness = 5;
 
@@ -28,7 +36,8 @@ wallThickness = 5;
 incBaseCornerRadius = 0;
 waterResSideCornerRadius = 0;
 topHatchSideCornerRadius = 0;
-dedcoolerBaseCornerRadius = 0;
+dedCoolerBaseCornerRadius = 0;
+elecBaySideCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -53,11 +62,19 @@ topHatchSidePoints = [
 ];
 
 dedCoolerBasePoints = [
-    [0, 0, dedcoolerBaseCornerRadius],
-    [dedCoolerSlantXOffset, -dedCoolerDepth, dedcoolerBaseCornerRadius],
-    [dedCoolerLength - dedCoolerSlantXOffset, -dedCoolerDepth, dedcoolerBaseCornerRadius],
-    [dedCoolerLength, 0, dedcoolerBaseCornerRadius],
+    [0, 0, dedCoolerBaseCornerRadius],
+    [dedCoolerSlantXOffset, -dedCoolerDepth, dedCoolerBaseCornerRadius],
+    [dedCoolerLength - dedCoolerSlantXOffset, -dedCoolerDepth, dedCoolerBaseCornerRadius],
+    [dedCoolerLength, 0, dedCoolerBaseCornerRadius],
 ];
+
+elecBaySidePoints = [
+    [0, 0, elecBaySideCornerRadius],
+    [elecBayBottomXOffset, 0, elecBaySideCornerRadius],
+    [elecBayLength, tan(elecBaySlantAngle) * (elecBayLength -elecBayBottomXOffset), elecBaySideCornerRadius],
+    [0, elecBayHeight, elecBaySideCornerRadius],
+];
+
 
 module lx(h, center = false) {
     mirror([0, 0, h < 0 ? 1 : 0]) linear_extrude(abs(h), center = center) children();

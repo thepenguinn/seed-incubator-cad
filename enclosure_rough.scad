@@ -69,6 +69,21 @@ module ded_cooler() {
     }
 }
 
+module elec_bay_side_plate() {
+    polygon(polyRound(elecBaySidePoints, fn = 12));
+}
+
+module elec_bay() {
+    translate([incLength, -elecBayDepth / 2, 0]) {
+        rotate([90, 0, 0]) {
+            lx(-elecBayDepth) {
+                elec_bay_side_plate();
+            }
+        }
+    }
+}
+
+elec_bay();
 ded_cooler();
 top_hatch();
 inc_area();
