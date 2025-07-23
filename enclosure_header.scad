@@ -14,8 +14,13 @@ waterResSlantAngle = 68; // Angle
 topHatchLength = 60 * 10; // cm
 topHatchDepth =  50 * 10; // cm
 topHatchHeight = 7 * 10; // cm
-
 topHatchSlantXOffset = 7 * 10; // cm
+
+dedCoolerLength = 30 * 10; // cm
+dedCoolerDepth = 8 * 10; // cm
+dedCoolerHeight = 10 * 10; // cm
+
+dedCoolerSlantXOffset = 8 * 10; // cm
 
 wallThickness = 5;
 
@@ -23,6 +28,7 @@ wallThickness = 5;
 incBaseCornerRadius = 0;
 waterResSideCornerRadius = 0;
 topHatchSideCornerRadius = 0;
+dedcoolerBaseCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -44,6 +50,13 @@ topHatchSidePoints = [
     [topHatchSlantXOffset, -topHatchHeight, topHatchSideCornerRadius],
     [topHatchLength - topHatchSlantXOffset, -topHatchHeight, topHatchSideCornerRadius],
     [topHatchLength, 0, topHatchSideCornerRadius],
+];
+
+dedCoolerBasePoints = [
+    [0, 0, dedcoolerBaseCornerRadius],
+    [dedCoolerSlantXOffset, -dedCoolerDepth, dedcoolerBaseCornerRadius],
+    [dedCoolerLength - dedCoolerSlantXOffset, -dedCoolerDepth, dedcoolerBaseCornerRadius],
+    [dedCoolerLength, 0, dedcoolerBaseCornerRadius],
 ];
 
 module lx(h, center = false) {

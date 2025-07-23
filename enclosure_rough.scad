@@ -48,6 +48,28 @@ module top_hatch() {
     }
 }
 
+module ded_cooler_base_plate() {
+    translate([incLength - topHatchLength, -incDepth / 2, 0]) {
+        polygon(polyRound(dedCoolerBasePoints, fn = 12));
+    }
+
+    mirror([0, 1, 0]) {
+        translate([incLength - topHatchLength, -incDepth / 2, 0]) {
+            polygon(polyRound(dedCoolerBasePoints, fn = 12));
+        }
+    }
+}
+
+
+module ded_cooler() {
+    translate([0, 0, incHeight - dedCoolerHeight]) {
+        lx(dedCoolerHeight) {
+            ded_cooler_base_plate();
+        }
+    }
+}
+
+ded_cooler();
 top_hatch();
 inc_area();
 water_res();
