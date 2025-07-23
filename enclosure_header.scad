@@ -4,19 +4,25 @@ incLength = 90 * 10; // cm
 incDepth = 60 * 10; // cm
 incHeight = soilDepth + 50 * 10; // cm
 
-waterResLength = 20 * 10;; // cm
-waterResDepth = 50 * 10;; // cm
-waterResHeight = 50 * 10;; // cm
+waterResLength = 20 * 10; // cm
+waterResDepth = 50 * 10; // cm
+waterResHeight = 50 * 10; // cm
 
 waterResBottomLength = 7 * 10; // cm
-
 waterResSlantAngle = 68; // Angle
+
+topHatchLength = 60 * 10; // cm
+topHatchDepth =  50 * 10; // cm
+topHatchHeight = 7 * 10; // cm
+
+topHatchSlantXOffset = 7 * 10; // cm
 
 wallThickness = 5;
 
 // DUMMY: mean that these variable are for aesthetics
 incBaseCornerRadius = 0;
 waterResSideCornerRadius = 0;
+topHatchSideCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -31,6 +37,13 @@ waterResSidePoints = [
     [-waterResLength, -(tan(waterResSlantAngle) * (waterResLength - waterResBottomLength)), waterResSideCornerRadius],
     [-waterResLength, -waterResHeight, waterResSideCornerRadius],
     [0, -waterResHeight, waterResSideCornerRadius],
+];
+
+topHatchSidePoints = [
+    [0, 0, topHatchSideCornerRadius],
+    [topHatchSlantXOffset, -topHatchHeight, topHatchSideCornerRadius],
+    [topHatchLength - topHatchSlantXOffset, -topHatchHeight, topHatchSideCornerRadius],
+    [topHatchLength, 0, topHatchSideCornerRadius],
 ];
 
 module lx(h, center = false) {

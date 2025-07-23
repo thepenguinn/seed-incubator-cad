@@ -32,7 +32,22 @@ module water_res() {
     }
 }
 
+module top_hatch_side_plate() {
+    translate([incLength - topHatchLength, -incHeight, 0]) {
+        polygon(polyRound(topHatchSidePoints, fn = 12));
+    }
+}
 
+module top_hatch() {
+    translate([0, -topHatchDepth / 2, 0]) {
+        rotate([-90, 0, 0]) {
+            lx(topHatchDepth) {
+                top_hatch_side_plate();
+            }
+        }
+    }
+}
+
+top_hatch();
 inc_area();
-
 water_res();
