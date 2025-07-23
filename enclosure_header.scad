@@ -37,6 +37,8 @@ extBlockLength = 20 * 10; // cm
 extBlockDepth = incDepth; // cm
 extBlockHeight = 10 * 10; // cm
 
+extPipeCrossSideLength = 8 * 10; // cm
+
 wallThickness = 5;
 
 // DUMMY: mean that these variable are for aesthetics
@@ -47,6 +49,7 @@ dedCoolerBaseCornerRadius = 0;
 elecBaySideCornerRadius = 0;
 humeResBaseCornerRadius = 0;
 extBlockSideCornerRadius = 0;
+extPipeSideCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -96,6 +99,17 @@ extBlockSidePoints = [
     [0, extBlockHeight, extBlockSideCornerRadius],
     [0, 0, extBlockSideCornerRadius],
     [extBlockLength, 0, extBlockSideCornerRadius],
+];
+
+extPipeSidePoints = [
+    [0, 0, extPipeSideCornerRadius],
+    [incLength, 0, extPipeSideCornerRadius],
+    [incLength, extPipeCrossSideLength, extPipeSideCornerRadius],
+    [extPipeCrossSideLength, extPipeCrossSideLength, extPipeSideCornerRadius],
+    [extPipeCrossSideLength, incHeight - soilDepth - extPipeCrossSideLength, extPipeSideCornerRadius],
+    [incLength, incHeight - soilDepth - extPipeCrossSideLength, extPipeSideCornerRadius],
+    [incLength, incHeight - soilDepth, extPipeSideCornerRadius],
+    [0, incHeight - soilDepth, extPipeSideCornerRadius],
 ];
 
 module lx(h, center = false) {

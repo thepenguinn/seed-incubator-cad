@@ -118,6 +118,30 @@ module ext_block() {
     }
 }
 
+module ext_pipe_side_plate() {
+    polygon(polyRound(extPipeSidePoints, fn = 12));
+}
+
+module ext_pipe_single() {
+    translate([0, -incDepth / 2, 0]) {
+        rotate([90, 0, 0]) {
+            lx(-extPipeCrossSideLength) {
+                ext_pipe_side_plate();
+            }
+        }
+    }
+}
+
+module ext_pipe() {
+    translate([0, 0, soilDepth]) {
+        ext_pipe_single();
+        mirror([0, 1, 0]) {
+            ext_pipe_single();
+        }
+    }
+}
+
+ext_pipe();
 ext_block();
 hume_res();
 elec_bay();
