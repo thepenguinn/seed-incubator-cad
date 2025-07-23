@@ -104,6 +104,21 @@ module hume_res() {
     }
 }
 
+module ext_block_side_plate() {
+    polygon(polyRound(extBlockSidePoints, fn = 12));
+}
+
+module ext_block() {
+    translate([0, -extBlockDepth / 2, incHeight]) {
+        rotate([90, 0, 0]) {
+            lx(-extBlockDepth) {
+                ext_block_side_plate();
+            }
+        }
+    }
+}
+
+ext_block();
 hume_res();
 elec_bay();
 ded_cooler();

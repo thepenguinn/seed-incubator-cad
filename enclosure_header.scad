@@ -30,10 +30,12 @@ elecBaySlantAngle = 50; // Angle
 humeResLength = 16 * 10; // cm
 humeResDepth = 6 * 10; // cm
 humeResHeight = 18 * 10; // cm
-
 humeResSlantXOffset = 4 * 10; // cm
-
 humeResXOffset = 8 * 10; // cm
+
+extBlockLength = 20 * 10; // cm
+extBlockDepth = incDepth; // cm
+extBlockHeight = 10 * 10; // cm
 
 wallThickness = 5;
 
@@ -44,6 +46,7 @@ topHatchSideCornerRadius = 0;
 dedCoolerBaseCornerRadius = 0;
 elecBaySideCornerRadius = 0;
 humeResBaseCornerRadius = 0;
+extBlockSideCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -88,6 +91,12 @@ humeResBasePoints = [
     [humeResLength, 0, humeResBaseCornerRadius],
 ];
 
+extBlockSidePoints = [
+    [extBlockLength, extBlockHeight, extBlockSideCornerRadius],
+    [0, extBlockHeight, extBlockSideCornerRadius],
+    [0, 0, extBlockSideCornerRadius],
+    [extBlockLength, 0, extBlockSideCornerRadius],
+];
 
 module lx(h, center = false) {
     mirror([0, 0, h < 0 ? 1 : 0]) linear_extrude(abs(h), center = center) children();
