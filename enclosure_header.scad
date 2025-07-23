@@ -4,16 +4,33 @@ incLength = 90 * 10; // cm
 incDepth = 60 * 10; // cm
 incHeight = soilDepth + 50 * 10; // cm
 
+waterResLength = 20 * 10;; // cm
+waterResDepth = 50 * 10;; // cm
+waterResHeight = 50 * 10;; // cm
+
+waterResBottomLength = 7 * 10; // cm
+
+waterResSlantAngle = 68; // Angle
+
 wallThickness = 5;
 
 // DUMMY: mean that these variable are for aesthetics
-incCornerRadius = 0;
+incBaseCornerRadius = 0;
+waterResSideCornerRadius = 0;
 
 incBasePoints = [
-    [incLength, incDepth / 2, incCornerRadius],
-    [0, incDepth / 2, incCornerRadius],
-    [0, -incDepth / 2, incCornerRadius],
-    [incLength, -incDepth / 2, incCornerRadius],
+    [incLength, incDepth / 2, incBaseCornerRadius],
+    [0, incDepth / 2, incBaseCornerRadius],
+    [0, -incDepth / 2, incBaseCornerRadius],
+    [incLength, -incDepth / 2, incBaseCornerRadius],
+];
+
+waterResSidePoints = [
+    [0, 0, waterResSideCornerRadius],
+    [-waterResBottomLength, 0, waterResSideCornerRadius],
+    [-waterResLength, -(tan(waterResSlantAngle) * (waterResLength - waterResBottomLength)), waterResSideCornerRadius],
+    [-waterResLength, -waterResHeight, waterResSideCornerRadius],
+    [0, -waterResHeight, waterResSideCornerRadius],
 ];
 
 module lx(h, center = false) {
