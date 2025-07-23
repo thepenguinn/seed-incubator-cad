@@ -21,14 +21,19 @@ dedCoolerDepth = 8 * 10; // cm
 dedCoolerHeight = 10 * 10; // cm
 dedCoolerSlantXOffset = 8 * 10; // cm
 
-
 elecBayLength = 25 * 10; // cm
 elecBayDepth = 50 * 10; // cm
 elecBayHeight = incHeight; // cm
-
 elecBayBottomXOffset = 15 * 10; // cm
-
 elecBaySlantAngle = 50; // Angle
+
+humeResLength = 16 * 10; // cm
+humeResDepth = 6 * 10; // cm
+humeResHeight = 18 * 10; // cm
+
+humeResSlantXOffset = 4 * 10; // cm
+
+humeResXOffset = 8 * 10; // cm
 
 wallThickness = 5;
 
@@ -38,6 +43,7 @@ waterResSideCornerRadius = 0;
 topHatchSideCornerRadius = 0;
 dedCoolerBaseCornerRadius = 0;
 elecBaySideCornerRadius = 0;
+humeResBaseCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -73,6 +79,13 @@ elecBaySidePoints = [
     [elecBayBottomXOffset, 0, elecBaySideCornerRadius],
     [elecBayLength, tan(elecBaySlantAngle) * (elecBayLength -elecBayBottomXOffset), elecBaySideCornerRadius],
     [0, elecBayHeight, elecBaySideCornerRadius],
+];
+
+humeResBasePoints = [
+    [0, 0, humeResBaseCornerRadius],
+    [humeResSlantXOffset, -humeResDepth, humeResBaseCornerRadius],
+    [humeResLength - humeResSlantXOffset, -humeResDepth, humeResBaseCornerRadius],
+    [humeResLength, 0, humeResBaseCornerRadius],
 ];
 
 

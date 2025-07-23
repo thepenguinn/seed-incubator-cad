@@ -83,6 +83,28 @@ module elec_bay() {
     }
 }
 
+module hume_res_base_plate() {
+    translate([humeResXOffset, -incDepth / 2, 0]) {
+        polygon(polyRound(humeResBasePoints, fn = 12));
+    }
+
+
+    translate([incLength - humeResXOffset - humeResLength, incDepth / 2, 0]) {
+        mirror([0, 1, 0]) {
+            polygon(polyRound(humeResBasePoints, fn = 12));
+        }
+    }
+}
+
+module hume_res() {
+    translate([0, 0, soilDepth]) {
+        lx(humeResHeight) {
+            hume_res_base_plate();
+        }
+    }
+}
+
+hume_res();
 elec_bay();
 ded_cooler();
 top_hatch();
