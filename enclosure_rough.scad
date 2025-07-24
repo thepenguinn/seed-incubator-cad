@@ -141,6 +141,19 @@ module ext_pipe() {
     }
 }
 
+module side_hatch_base_plate() {
+    polygon(polyRound(sideHatchBasePoints, fn = 12));
+}
+
+module side_hatch() {
+    translate([sideHatchXOffset, incDepth / 2, incHeight - sideHatchHeight - sideHatchZOffset]) {
+        lx(sideHatchHeight) {
+            side_hatch_base_plate();
+        }
+    }
+}
+
+side_hatch();
 ext_pipe();
 ext_block();
 hume_res();

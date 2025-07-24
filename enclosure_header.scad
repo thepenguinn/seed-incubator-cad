@@ -39,6 +39,13 @@ extBlockHeight = 10 * 10; // cm
 
 extPipeCrossSideLength = 8 * 10; // cm
 
+sideHatchZOffset = 12 * 10; // cm
+sideHatchXOffset = 3 * 10; // cm
+sideHatchLength = 40 * 10; // cm
+sideHatchDepth = 6 * 10; // cm
+sideHatchHeight = incHeight - soilDepth - sideHatchZOffset; // cm
+sideHatchSlantXOffset = 4 * 10; // cm
+
 wallThickness = 5;
 
 // DUMMY: mean that these variable are for aesthetics
@@ -50,6 +57,7 @@ elecBaySideCornerRadius = 0;
 humeResBaseCornerRadius = 0;
 extBlockSideCornerRadius = 0;
 extPipeSideCornerRadius = 0;
+sideHatchBaseCornerRadius = 0;
 
 incBasePoints = [
     [incLength, incDepth / 2, incBaseCornerRadius],
@@ -110,6 +118,13 @@ extPipeSidePoints = [
     [incLength, incHeight - soilDepth - extPipeCrossSideLength, extPipeSideCornerRadius],
     [incLength, incHeight - soilDepth, extPipeSideCornerRadius],
     [0, incHeight - soilDepth, extPipeSideCornerRadius],
+];
+
+sideHatchBasePoints = [
+    [0, 0, sideHatchBaseCornerRadius],
+    [sideHatchSlantXOffset, sideHatchDepth, sideHatchBaseCornerRadius],
+    [sideHatchLength - sideHatchSlantXOffset, sideHatchDepth, sideHatchBaseCornerRadius],
+    [sideHatchLength, 0, sideHatchBaseCornerRadius],
 ];
 
 module lx(h, center = false) {
