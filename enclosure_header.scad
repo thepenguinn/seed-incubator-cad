@@ -106,7 +106,9 @@ extBlockSidePoints = [
     [extBlockLength, extBlockHeight, extBlockSideCornerRadius],
     [0, extBlockHeight, extBlockSideCornerRadius],
     [0, 0, extBlockSideCornerRadius],
-    [extBlockLength, 0, extBlockSideCornerRadius],
+    /*[extBlockLength, 0, extBlockSideCornerRadius],*/
+    [extBlockLength + extBlockLength / 4, 0, extBlockSideCornerRadius],
+    [extBlockLength, extBlockHeight / 2, extBlockSideCornerRadius],
 ];
 
 extPipeSidePoints = [
