@@ -1,0 +1,11 @@
+tmp.scad
+frame_rough/green_pics
+frame_rough/pen
+frame_rough/rendered
+frame_rough/rendered_alpha
+frame_rough/test_png
+frame_rough/tmp
+frame_rough/video_frames
+frame_rough/videos
+frame_rough/_render_tmp.scad
+frame_rough/*.stl
