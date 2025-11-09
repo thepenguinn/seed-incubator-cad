@@ -9,3 +9,4 @@ frame_rough/video_frames
 frame_rough/videos
 frame_rough/_render_tmp.scad
 frame_rough/*.stl
+*.FCBak
